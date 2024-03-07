@@ -1,0 +1,38 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "**Introducing our Weather app:** your go-to for instant weather updates and forecasts. Easily check current conditions and predictions for any location, whether it's rain, snow, or sunshine. Stay prepared with essential details like temperatures and precipitation, and enjoy the flexibility to input your location manually for convenience ## Wireframe: ![wireframe](https://github.com/shjang1025/Weather-App/assets/26673070/4f3db1b8-9918-4bfb-a16a-fce3d48cb14c) ## Functionality & MVPs: In our Weather app, users will be able to:",
+  "main": "index.js",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shjang1025/Weather-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shjang1025/Weather-App/issues"
+  },
+  "homepage": "https://github.com/shjang1025/Weather-App#readme",
+  "dependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "babel-loader": "^9.1.3",
+    "core-js": "^3.36.0",
+    "css-loader": "^6.10.0",
+    "mini-css-extract-plugin": "^2.8.1",
+    "regenerator-runtime": "^0.14.1",
+    "sass": "^1.71.1",
+    "sass-loader": "^14.1.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
