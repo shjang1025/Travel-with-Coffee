@@ -25,3 +25,30 @@ In addition, this project will include:
 * **OpenWeatherMap API**: Integrated to fetch real-time weather data for various locations.
 * **Canvas**: Utilized for creating dynamic backgrounds and animations based on weather conditions.
 * **Fetch API**: Used for making asynchronous HTTP requests to the OpenWeatherMap API for weather data retrieval.
+
+## Implementation Timeline:
+
+#### Friday + Weekend: 
+* Set up the project environment, including installing necessary dependencies and configuring webpack.
+* Familarize with Canvas API 
+* Research APIs to determine the best fit for retrieving the weather data
+
+#### Monday:
+* Integrate a weather API (e.g., OpenWeatherMap) to fetch weather data for the user's selected location.
+* Create database to store weather data
+* Implement a search functionality that allows user to eaily find and select their desired location
+* Familarize with CSS styling
+
+#### Tuesday:
+* Implement the display of weather information such as temperature, precipitation, and wind speed on the user interface.
+* Create an option to select Farenheit or Celsius. 
+
+
+#### Wednesday: 
+* Finish implementing user controls.
+* Focus on styling using CSS, including different color schemes and navigation links.
+* If time permits, start working on any bonus features or enhancements.
+
+#### Thursday: 
+* Deploy the project to GitHub pages for public access. 
+* If time allows, rewrite the project proposal as a production README, including setup instructions, usage guidelines, and any additional information needed for users.
