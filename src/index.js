@@ -1,12 +1,12 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    const API_key = "fdd45cf25d9946c90283a1437ded43dc";
-    // let WeatherAPI = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}`
     const searchButton = document.querySelector("#searchButton");
+    const userInputSearch = document.querySelector(".inputCity_button");
 
     // with click event, it will execute the getCurrentLocation function
     searchButton.addEventListener("click", getCurrentLocation);
-    
+    userInputSearch.addEventListener("click", searchCity);
+
     function getCurrentLocation() {
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
@@ -16,12 +16,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 const p = document.createElement("p");
                 p.textContent = `Latitude: ${lat} / Longitude: ${lng}`
                 document.querySelector(".locationInfo").append(p);
+                return [lat, lng];
             })        
         } else {
             alert("Geolocation is not supported by your browser.")
         }
     }
     
+    //fetching the data using weatherapi
+    function searchCity() { 
+        const coord = getCurrentLocation();
+        const lat = coord[0];
+        const lng = coord[1];
+
+        let WeatherAPI = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}`
+        return fetch(WeatherAPI)
+            .then(res => {
+                if(res.ok) {
+                    return res.json();
+                } else {
+                    throw res;
+                }
+            })
+            .then(coordInfo => {
+                
+            })
+            .catch(err => console.error(err));
+    }
+
 });
 
 //DOM objects
