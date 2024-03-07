@@ -1,6 +1,6 @@
 # Weather-App
 ## Background: 
-Introducing our Weather app: your go-to for instant weather updates and forecasts. Easily check current conditions and predictions for any location, whether it's rain, snow, or sunshine. Stay prepared with essential details like temperatures and precipitation, and enjoy the flexibility to input your location manually for convenience
+**Introducing our Weather app:** your go-to for instant weather updates and forecasts. Easily check current conditions and predictions for any location, whether it's rain, snow, or sunshine. Stay prepared with essential details like temperatures and precipitation, and enjoy the flexibility to input your location manually for convenience
 ## Wireframe:
 ![wireframe](https://github.com/shjang1025/Weather-App/assets/26673070/4f3db1b8-9918-4bfb-a16a-fce3d48cb14c)
 ## Functionality & MVPs:
