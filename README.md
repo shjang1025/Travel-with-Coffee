@@ -2,7 +2,7 @@
 ## Background: 
 Introducing our Weather app: your go-to for instant weather updates and forecasts. Easily check current conditions and predictions for any location, whether it's rain, snow, or sunshine. Stay prepared with essential details like temperatures and precipitation, and enjoy the flexibility to input your location manually for convenience
 ## Wireframe:
-![Wireframe](wireframe.png)
+![wireframe](https://github.com/shjang1025/Weather-App/assets/26673070/4f3db1b8-9918-4bfb-a16a-fce3d48cb14c)
 ## Functionality & MVPs:
 In our Weather app, users will be able to:
 
@@ -14,6 +14,14 @@ In our Weather app, users will be able to:
 * Receive accurate forecasts to plan ahead effectively.
 
 In addition, this project will include: 
+* Integration with OpenWeatherMap API
+* Dynamic Background using CSS and Canvas
+* User Instructions and README
 
-# Technologies, Libraries, APIs:
+## Technologies, Libraries, APIs:
 
+* **HTML, CSS, JavaScript**: Used for frontend development and user interface design.
+* **Ruby on Rails**: Utilized for backend development, API endpoints, and server-side logic.
+* **OpenWeatherMap API**: Integrated to fetch real-time weather data for various locations.
+* **Canvas**: Utilized for creating dynamic backgrounds and animations based on weather conditions.
+* **Fetch API**: Used for making asynchronous HTTP requests to the OpenWeatherMap API for weather data retrieval.
