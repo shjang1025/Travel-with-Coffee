@@ -11,6 +11,7 @@
     <title>☔️ Weather App</title>
 </head>
 <body>
+
     <nav class="navbar">
         <div class="navbar_logo">
             
@@ -19,7 +20,7 @@
         </div>
     </nav>
     <div class="locationInfo"></div>
-    <!-- <button id="searchButton">🔍 Search</button> -->
+    <button id="searchButton">🔍 Search</button>
     <div class="container">
         <div class="currentDate">
         </div>
@@ -31,13 +32,19 @@
     </div>
 
     <div class="weatherInfo">
-        <div id="main_weather"></div>
-        <div id="main_description"></div>
-        <div id="temp"></div>
-        <div id="temp_min_max"></div>
-        <div id="feels_like_temp"></div>
-        <div id="city"></div>
-        <div id="country"></div>
+        <div class="mainWeather">
+            <div id="main_weather"></div>
+            <div id="main_description"></div>
+        </div>
+
+        <div class="temperature">
+            <div id="temp"></div>
+            <div id="temp_min_max"></div>
+            <div id="feels_like_temp"></div>
+        </div>
+
+        <div id="location"></div>
+
 
     </div>
 

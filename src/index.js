@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // const searchButton = document.querySelector("#searchButton");
     const userInputSearch = document.querySelector(".inputCity_button");
     
+    
     // with click event, it will execute the getCurrentLocation function
-
-    // searchButton.addEventListener("click", getCurrentLocation);
+    searchButton.addEventListener("click", getCurrentLocation);
     userInputSearch.addEventListener("click", (event) => {
         event.preventDefault();
         const userInput = document.querySelector(".inputCity_mycity").value;
@@ -59,39 +59,42 @@ document.addEventListener("DOMContentLoaded", () => {
             }) // promise object will be returned 
             .then(allInfo => {
                 const mainWeather = document.querySelector('#main_weather');
-                // mainWeather.setAttribute("id", "mainWeather")
                 const mainDes = document.querySelector('#main_description');
                 const temp = document.querySelector('#temp');
                 const tempMinMax = document.querySelector('#temp_min_max');
                 const feelsLikeTemp = document.querySelector('#feels_like_temp');
-                const city = document.querySelector('#city');
-                const country = document.querySelector('#country');
+                const location = document.querySelector('#location');
 
-                mainWeather.innerHTML = `<p>${allInfo.weather[0].main}</p>`;
+                // mainWeather.innerHTML = `<p>${allInfo.weather[0].main}</p>`;
                 mainDes.innerHTML = `<p>${allInfo.weather[0].description}</p>`;
 
-                //parsing main object and fetch temp (integer)
+                //parsing main object and fetch temp (integer) - kelvin to celsius/farenheit.
                 temp.innerHTML = `<p>Temperature: ${kToc(JSON.parse(allInfo.main.temp))}°C (${kTof(JSON.parse(allInfo.main.temp))}°F) </p>`;
                 tempMinMax.innerHTML = `<p>Min/Max: ${kToc(JSON.parse(allInfo.main.temp_min))}°C (${kTof(JSON.parse(allInfo.main.temp_min))}°F) / 
                                         ${kToc(JSON.parse(allInfo.main.temp_max))}°C (${kTof(JSON.parse(allInfo.main.temp_max))}°F)</p>`;
-                feelsLikeTemp.innerHTML = `<p>${kToc(JSON.parse(allInfo.main.feels_like))}°C (${kTof(JSON.parse(allInfo.main.feels_like))}°F)</p>`;
-                city.innerHTML = `<p>${allInfo.name}</p>`;
-                country.innerHTML = `<p>${allInfo.sys.country}</p>`;
+                feelsLikeTemp.innerHTML = `<p>Feels like temp: ${kToc(JSON.parse(allInfo.main.feels_like))}°C (${kTof(JSON.parse(allInfo.main.feels_like))}°F)</p>`;
+                location.innerHTML = `<p>Location: ${allInfo.name}, ${allInfo.sys.country}</p>`;
+
+                // put the weather icon depending on the weather description.
+                const url = `https://openweathermap.org/img/wn/${allInfo.weather[0].icon}@2x.png`
+                mainWeather.innerHTML = `<img src=${url}>`
+                const weatherIcon = mainWeather.createElement('img')
+                mainWeather.appendChild(weatherIcon);
 
             })
             .catch(err => console.error(err));
 
 
             function kTof (kelvin) {
-                return (Math.round(kelvin-273.15) * (9/5) + 32).toFixed(2);
+                return (Math.round(kelvin-273.15) * (9/5) + 32).toFixed(0);
             }
             function kToc (kelvin) {
                 return (Math.round(kelvin -273.15)).toFixed(0);
             }
-
     }
 
     
+
 });
 
 

@@ -41,7 +41,10 @@ body {
 .weatherInfo {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: flex-end;
   flex-direction: column;
   font-family: "Signika", sans-serif;
+  margin-left: 20px;
 }
