@@ -1,4 +1,47 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+.inputCity_mycity {
+  padding: 12px 12px;
+  margin: 8px 8px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid rgb(124, 202, 235);
+}
+.inputCity_mycity button {
+  cursor: pointer;
+}
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 12px 12px;
+  font-family: "Signika", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.currentDate {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(124, 202, 235);
+  padding: 12px 12px;
+}
+
+.weatherInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Signika", sans-serif;
+}

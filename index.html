@@ -2,13 +2,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./dist/main/css"> -->
-    <script src="./dist/main.js" defer></script>
+    <link rel="stylesheet" href="./dist/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+    <script src="./dist/main.js"></script>
+    <script src="https://kit.fontawesome.com/1cf5a1c1a8.js" crossorigin="anonymous"></script>
     <title>☔️ Weather App</title>
 </head>
 <body>
-    <h1>Weather App!</h1>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            
+            <a href="https://github.com/shjang1025/Weather-App"><i class="fa-brands fa-github"></i>&nbsp;</a>
+            <a href="https://www.linkedin.com/in/sohyun-jang-469918115/"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </nav>
     <div class="locationInfo"></div>
-    <button id="searchButton">🔍 Search</button>
+    <!-- <button id="searchButton">🔍 Search</button> -->
+    <div class="container">
+        <div class="currentDate">
+        </div>
+
+        <form class="inputCity">
+            <input type="text" class="inputCity_mycity" id="mycity" placeholder="Seattle">
+            <button class="inputCity_button">🔍 Search</button>
+        </form>
+    </div>
+
+    <div class="weatherInfo">
+        <div id="main_weather"></div>
+        <div id="main_description"></div>
+        <div id="temp"></div>
+        <div id="temp_min_max"></div>
+        <div id="feels_like_temp"></div>
+        <div id="city"></div>
+        <div id="country"></div>
+
+    </div>
+
+    <br>
+
+    <div class="defaultCity">
+
+    </div>
+
 </body>
 </html>
