@@ -20,20 +20,33 @@ document.addEventListener("DOMContentLoaded", () => {
     
     
     // with click event, it will execute the getCurrentLocation function
-    searchButton.addEventListener("click", async(event) => {
+    searchButton.addEventListener("click", (event) => {
         event.preventDefault();
-        await navigator.geolocation.getCurrentPosition(geoCurrentLocation);
+        navigator.geolocation.getCurrentPosition(geoCurrentLocation);
     });
+    // userInputSearch.addEventListener("click", (event) => {
+    //     event.preventDefault();
+    //     const userInput = document.querySelector(".inputCity_mycity").value;
+    //     if (userInput.trim() === "") {
+    //         alert("Please enter a city name.");
+    //         return;
+    //     }
+    //     getWeatherInfo(userInput);
+    // });
+
     userInputSearch.addEventListener("click", (event) => {
         event.preventDefault();
-        const userInput = document.querySelector(".inputCity_mycity").value;
-        if (userInput.trim() === "") {
-            alert("Please enter a city name.");
-            return;
+        const f = () => {
+            const userInput = document.querySelector(".inputCity_mycity").value;
+            if (userInput.trim() === "") {
+                alert("Please enter a city name.");
+                return;
+            }
+            getWeatherInfo(userInput);
         }
-        getWeatherInfo(userInput);
+        f();
+        
     });
-
     //this function will be used as a call back function
     function geoCurrentLocation(position) {
         let lat = position.coords.latitude;
@@ -53,10 +66,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     let weatherInfo = document.querySelector('.weatherInfo'); 
+    let main = document.querySelector('.main');
+    let mainWeather = document.querySelector('.main_weather');
 
     //fetching the data using weatherapi, with user Input
     function getWeatherInfo(cityName) {
-        
+        // main.classList.remove(...main.classList);
+        // mainWeather.classList.remove(...mainWeather.classList);
+
+        main.classList.forEach((ele) => {
+            if (ele !== 'main') {
+                main.classList.remove(ele);
+            }
+        });
+
+        mainWeather.classList.forEach((ele) => {
+            if (ele !== 'main_weather') {
+                main.classList.remove(ele);
+            }
+        });
         //empty all div tag under div weatherInfo
         // weatherInfo.empty();
         // weather info can be fetched from this API with CITY NAME (user input)
@@ -74,11 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function displayWeather(allInfo) {
-        let main = document.querySelector('.main');
-        let mainWeather = document.querySelector('.main_weather');
-        //reset to the original setting
-        mainWeather.classList.remove(...mainWeather.classList);
-
+        
         let mainDes = document.querySelector('#main_description');
         let temp = document.querySelector('#temp');
         let tempMinMax = document.querySelector('#temp_min_max');
@@ -97,9 +121,14 @@ document.addEventListener("DOMContentLoaded", () => {
         location.innerHTML = `<p>Location: ${allInfo.name}, ${allInfo.sys.country}</p>`;
 
         // icon depends on weather condition
-        const url = `https://openweathermap.org/img/wn/${iconRes}@2x.png`;
         
+        const existingImage = mainWeather.querySelector('img');
+        if (existingImage) {
+            // If there is an existing image, remove it
+            existingImage.remove();
+        }
         const weatherIcon = document.createElement('img');
+        const url = `https://openweathermap.org/img/wn/${iconRes}@2x.png`;
         weatherIcon.src = url;
         mainWeather.appendChild(weatherIcon);
         mainDes.innerHTML = `<p>${allInfo.weather[0].description}</p>`;
@@ -116,6 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     function changeClass(iconRes, mainWeather, main) {
+        // main.classList.remove(...main.classList);
         // mainWeather.classList.remove(...mainWeather.classList);
 
         if (iconRes.startsWith("01")) {
@@ -138,5 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mainWeather.classList.add("others")
         }
     }
+
+
 });
 
