@@ -15,38 +15,50 @@ document.addEventListener("DOMContentLoaded", () => {
     currentDate.appendChild(dateInfo);
 
     let API_key = "fdd45cf25d9946c90283a1437ded43dc";
-    // const searchButton = document.querySelector("#searchButton");
+    const searchButton = document.querySelector("#searchButton");
     const userInputSearch = document.querySelector(".inputCity_button");
     
     
     // with click event, it will execute the getCurrentLocation function
-    searchButton.addEventListener("click", getCurrentLocation);
+    searchButton.addEventListener("click", async(event) => {
+        event.preventDefault();
+        await navigator.geolocation.getCurrentPosition(geoCurrentLocation);
+    });
     userInputSearch.addEventListener("click", (event) => {
         event.preventDefault();
         const userInput = document.querySelector(".inputCity_mycity").value;
+        if (userInput.trim() === "") {
+            alert("Please enter a city name.");
+            return;
+        }
         getWeatherInfo(userInput);
     });
 
-    function getCurrentLocation() {
-        if(navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                const lat = position.coords.latitude;
-                const lng = position.coords.longitude;
-
-                const p = document.createElement("p");
-                p.textContent = `Latitude: ${lat} / Longitude: ${lng}`
-                document.querySelector(".locationInfo").append(p);
-                return [lat, lng];
-            })        
-        } else {
-            alert("Geolocation is not supported by your browser.")
-        }
+    //this function will be used as a call back function
+    function geoCurrentLocation(position) {
+        let lat = position.coords.latitude;
+        let lng = position.coords.longitude;
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_key}`;
+        fetch(url)
+            .then(res => {
+                if(res.ok) {
+                    return res.json();
+                } else {
+                    throw res;
+                }
+            }) // promise object will be returned 
+            .then(allInfo => displayWeather(allInfo))
+            .catch(err => console.error(err));   
     }
+
     
+    let weatherInfo = document.querySelector('.weatherInfo'); 
 
     //fetching the data using weatherapi, with user Input
-    function getWeatherInfo(cityName) { 
-        const weatherInfo = document.querySelector('.weatherInfo');
+    function getWeatherInfo(cityName) {
+        
+        //empty all div tag under div weatherInfo
+        // weatherInfo.empty();
         // weather info can be fetched from this API with CITY NAME (user input)
         let WeatherAPI = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_key}`
         return fetch(WeatherAPI)
@@ -57,45 +69,74 @@ document.addEventListener("DOMContentLoaded", () => {
                     throw res;
                 }
             }) // promise object will be returned 
-            .then(allInfo => {
-                const mainWeather = document.querySelector('#main_weather');
-                const mainDes = document.querySelector('#main_description');
-                const temp = document.querySelector('#temp');
-                const tempMinMax = document.querySelector('#temp_min_max');
-                const feelsLikeTemp = document.querySelector('#feels_like_temp');
-                const location = document.querySelector('#location');
-
-                // mainWeather.innerHTML = `<p>${allInfo.weather[0].main}</p>`;
-                mainDes.innerHTML = `<p>${allInfo.weather[0].description}</p>`;
-
-                //parsing main object and fetch temp (integer) - kelvin to celsius/farenheit.
-                temp.innerHTML = `<p>Temperature: ${kToc(JSON.parse(allInfo.main.temp))}°C (${kTof(JSON.parse(allInfo.main.temp))}°F) </p>`;
-                tempMinMax.innerHTML = `<p>Min/Max: ${kToc(JSON.parse(allInfo.main.temp_min))}°C (${kTof(JSON.parse(allInfo.main.temp_min))}°F) / 
-                                        ${kToc(JSON.parse(allInfo.main.temp_max))}°C (${kTof(JSON.parse(allInfo.main.temp_max))}°F)</p>`;
-                feelsLikeTemp.innerHTML = `<p>Feels like temp: ${kToc(JSON.parse(allInfo.main.feels_like))}°C (${kTof(JSON.parse(allInfo.main.feels_like))}°F)</p>`;
-                location.innerHTML = `<p>Location: ${allInfo.name}, ${allInfo.sys.country}</p>`;
-
-                // put the weather icon depending on the weather description.
-                const url = `https://openweathermap.org/img/wn/${allInfo.weather[0].icon}@2x.png`
-                mainWeather.innerHTML = `<img src=${url}>`
-                const weatherIcon = mainWeather.createElement('img')
-                mainWeather.appendChild(weatherIcon);
-
-            })
+            .then(allInfo => displayWeather(allInfo))
             .catch(err => console.error(err));
-
-
-            function kTof (kelvin) {
-                return (Math.round(kelvin-273.15) * (9/5) + 32).toFixed(0);
-            }
-            function kToc (kelvin) {
-                return (Math.round(kelvin -273.15)).toFixed(0);
-            }
     }
 
+    function displayWeather(allInfo) {
+        let main = document.querySelector('.main');
+        let mainWeather = document.querySelector('.main_weather');
+        //reset to the original setting
+        mainWeather.classList.remove(...mainWeather.classList);
+
+        let mainDes = document.querySelector('#main_description');
+        let temp = document.querySelector('#temp');
+        let tempMinMax = document.querySelector('#temp_min_max');
+        let feelsLikeTemp = document.querySelector('#feels_like_temp');
+        let location = document.querySelector('.location');
+
+        //change class depending on weather condition
+        let iconRes = allInfo.weather[0].icon;
+        changeClass(iconRes, mainWeather, main);
+
+        //parsing main object and fetch temp (integer) - kelvin to celsius/farenheit.
+        temp.innerHTML = `<p>Temperature: ${kToc(JSON.parse(allInfo.main.temp))}°C (${kTof(JSON.parse(allInfo.main.temp))}°F) </p>`;
+        tempMinMax.innerHTML = `<p>Min/Max: ${kToc(JSON.parse(allInfo.main.temp_min))}°C (${kTof(JSON.parse(allInfo.main.temp_min))}°F) / 
+                                ${kToc(JSON.parse(allInfo.main.temp_max))}°C (${kTof(JSON.parse(allInfo.main.temp_max))}°F)</p>`;
+        feelsLikeTemp.innerHTML = `<p>Feels like temp: ${kToc(JSON.parse(allInfo.main.feels_like))}°C (${kTof(JSON.parse(allInfo.main.feels_like))}°F)</p>`;
+        location.innerHTML = `<p>Location: ${allInfo.name}, ${allInfo.sys.country}</p>`;
+
+        // icon depends on weather condition
+        const url = `https://openweathermap.org/img/wn/${iconRes}@2x.png`;
+        
+        const weatherIcon = document.createElement('img');
+        weatherIcon.src = url;
+        mainWeather.appendChild(weatherIcon);
+        mainDes.innerHTML = `<p>${allInfo.weather[0].description}</p>`;
+
+        // put the weather icon depending on the weather description.
+
+        function kTof (kelvin) {
+            return (Math.round(kelvin-273.15) * (9/5) + 32).toFixed(0);
+        }
+        function kToc (kelvin) {
+            return (Math.round(kelvin -273.15)).toFixed(0);
+        }
+        
+    }
     
+    function changeClass(iconRes, mainWeather, main) {
+        // mainWeather.classList.remove(...mainWeather.classList);
 
+        if (iconRes.startsWith("01")) {
+            main.classList.add("weather-clear")
+            mainWeather.classList.add("clear_sky")
+        } else if (iconRes.startsWith("02")) {
+            main.classList.add("weather-cloudy")
+            mainWeather.classList.add("clouds")
+        } else if (iconRes.startsWith("09")) {
+            main.classList.add("weather-drizzle")
+            mainWeather.classList.add("drizzle")
+        } else if (iconRes.startsWith("10")) {
+            main.classList.add("weather-rain")
+            mainWeather.classList.add("heavy_rain")
+        } else if (iconRes.startsWith("13")) {
+            main.classList.add("weather-snow")
+            mainWeather.classList.add("snow")
+        } else {
+            main.classList.add("others")
+            mainWeather.classList.add("others")
+        }
+    }
 });
-
-
 

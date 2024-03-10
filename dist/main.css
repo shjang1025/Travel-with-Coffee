@@ -3,10 +3,13 @@
   \*************************************************************************************************************************************/
 .inputCity_mycity {
   padding: 12px 12px;
-  margin: 8px 8px;
-  box-sizing: border-box;
+  margin: 8px 0px;
+  box-sizing: content-box;
+  border-radius: 10px;
   border: none;
-  border-bottom: 2px solid rgb(124, 202, 235);
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 .inputCity_mycity button {
   cursor: pointer;
@@ -15,13 +18,50 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   padding: 12px 12px;
+  flex-direction: column;
   font-family: "Signika", sans-serif;
 }
 
+button {
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0.1em 0.6em;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+}
+
+button {
+  --c: #E95A49; /* the color*/
+  box-shadow: 0 0 0 0.1em inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: var(--_g) calc(var(--_p, 0%) - 100%) 0%, var(--_g) calc(200% - var(--_p, 0%)) 0%, var(--_g) calc(var(--_p, 0%) - 100%) 100%, var(--_g) calc(200% - var(--_p, 0%)) 100%;
+  background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+  outline-offset: 0.1em;
+  transition: background-size 0.4s, background-position 0s 0.4s;
+}
+
+button:hover {
+  --_p: 100%;
+  transition: background-position 0.4s, background-size 0s;
+}
+
+button:active {
+  box-shadow: 0 0 9000000000q inset rgba(0, 0, 0, 0.6);
+  background-color: var(--c);
+  color: #fff;
+}
+
 body {
-  margin: 0;
+  height: 930px;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("https://source.unsplash.com/w4WU2PZ9bPg");
+  background-size: cover;
 }
 
 .currentDate {
@@ -34,17 +74,27 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(124, 202, 235);
-  padding: 12px 12px;
+  padding-top: 10px;
+  padding-bottom: 8px;
 }
 
-.weatherInfo {
+.navbar_logo {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adjust the space between icons */
+}
+
+s .weatherInfo {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  align-content: flex-end;
+}
+
+.main,
+.temperature,
+.location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-direction: column;
-  font-family: "Signika", sans-serif;
-  margin-left: 20px;
+  font-family: sans-serif;
 }
