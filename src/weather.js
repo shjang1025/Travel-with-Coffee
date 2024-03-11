@@ -64,10 +64,10 @@ function displayWeather(allInfo, mainWeather, main) {
     changeClass(iconRes, mainWeather, main);
 
     //parsing main object and fetch temp (integer) - kelvin to celsius/farenheit.
-    temp.innerHTML = `<p>Temperature: ${kToc(JSON.parse(allInfo.main.temp))}°C (${kTof(JSON.parse(allInfo.main.temp))}°F) </p>`;
-    tempMinMax.innerHTML = `<p>Min/Max: ${kToc(JSON.parse(allInfo.main.temp_min))}°C (${kTof(JSON.parse(allInfo.main.temp_min))}°F) / 
-                            ${kToc(JSON.parse(allInfo.main.temp_max))}°C (${kTof(JSON.parse(allInfo.main.temp_max))}°F)</p>`;
-    feelsLikeTemp.innerHTML = `<p>Feels like temp: ${kToc(JSON.parse(allInfo.main.feels_like))}°C (${kTof(JSON.parse(allInfo.main.feels_like))}°F)</p>`;
+    temp.innerHTML = `<p>Temperature: ${kTof(JSON.parse(allInfo.main.temp))}°F</p>`;
+    tempMinMax.innerHTML = `<p>Min/Max: ${kTof(JSON.parse(allInfo.main.temp_min))}°F / ${kTof(JSON.parse(allInfo.main.temp_max))}°F</p>`;
+    feelsLikeTemp.innerHTML = `<p>Feels like temp: ${kTof(JSON.parse(allInfo.main.feels_like))}°F</p>`;
+
     location.innerHTML = `<p>Location: ${allInfo.name}, ${allInfo.sys.country}</p>`;
     wind.innerHTML = `<p>Wind: ${JSON.parse(allInfo.wind.speed)}m/s / ${msTomph(JSON.parse(allInfo.wind.speed))} mph</p>`
 
@@ -146,13 +146,13 @@ function capitalize(str) {
 
 //units change functions
 function kTof (kelvin) {
-    return (Math.round(kelvin-273.15) * (9/5) + 32).toFixed(0);
+    return (((kelvin-273.15) * 9)/5 + 32).toFixed(0);
 }
 function kToc (kelvin) {
     return (Math.round(kelvin -273.15)).toFixed(0);
 }
 function msTomph(ms) {
-    return (Math.round(ms * 2.237)).toFixed(2);
+    return (ms * 2.237).toFixed(2);
 }
 
 function updateTemperatureDisplay(allInfo,isMetric) {

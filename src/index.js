@@ -42,6 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const userInput = document.querySelector(".inputCity_mycity").value;
             if (userInput) {
                 getTempInfo(userInput);
+            } else {
+                const curr = document.querySelector('.location p').textContent;
+                getTempInfo(curr.split(",")[0].split(" ")[1]);
             }
         }
         f();
