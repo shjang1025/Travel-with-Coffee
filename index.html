@@ -6,6 +6,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
     <script src="./dist/main.js"></script>
     <script src="https://kit.fontawesome.com/1cf5a1c1a8.js" crossorigin="anonymous"></script>
     <title>☔️ Weather App</title>
@@ -32,15 +35,8 @@
     </div>
 
     <div class="weatherInfo">
-
+        <div class="intro"></div>
         <div class="main">
-            <div class="units">
-                <input type="checkbox" id="switch">
-
-                <label for="switch" class="switch_label">
-                    <span class="onoff"></span>
-                </label>
-            </div>
             <div class="main_weather"></div>
             <img>
             <div id="main_description"></div>
@@ -54,7 +50,13 @@
         </div>
 
         <div class="location"></div>
+        <div class="units">
+            <input type="checkbox" id="switch">
 
+            <label for="switch" class="switch_label">
+                <span class="onoff"></span>
+            </label>
+        </div>
     </div>
 
     <br>

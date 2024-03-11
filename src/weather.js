@@ -1,5 +1,4 @@
 const API_key = "fdd45cf25d9946c90283a1437ded43dc";
-// let weatherInfo = document.querySelector('.weatherInfo'); 
 
 
 //fetching the data using weatherapi, with user Input
@@ -46,6 +45,8 @@ function getWeatherInfo(cityName) {
 }
 
 function displayWeather(allInfo, mainWeather, main) {
+    let intro = document.querySelector('.intro'); 
+    intro.innerHTML = `<p>Weather in ${allInfo.name}</p>`
 
     let mainDes = document.querySelector('#main_description');
     let temp = document.querySelector('#temp');
@@ -78,7 +79,7 @@ function displayWeather(allInfo, mainWeather, main) {
     mainWeather.appendChild(weatherIcon);
 
     //weather main description
-    mainDes.innerHTML = `<p>${allInfo.weather[0].description}</p>`;
+    mainDes.innerHTML = `<p>${capitalize(allInfo.weather[0].description)}</p>`;
 
     //units change functions
     function kTof (kelvin) {
@@ -140,4 +141,12 @@ function changeClass(iconRes, mainWeather, main) {
     }
 }
 
+function capitalize(str) {
+    const words = str.split(' ');
+    const res = [];
+    words.forEach((ele) => {
+        res.push(ele[0].toUpperCase() + ele.slice(1).toLowerCase());
+    });
+    return res.join(' ');
+}
 export { displayWeather, getWeatherInfo, API_key };

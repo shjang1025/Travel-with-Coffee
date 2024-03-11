@@ -22,7 +22,7 @@
   align-items: center;
   padding: 12px 12px;
   flex-direction: column;
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto Slab", serif;
 }
 
 button {
@@ -59,7 +59,7 @@ button:active {
 body {
   flex-direction: column;
   align-items: center;
-  background-image: url("https://source.unsplash.com/w4WU2PZ9bPg");
+  background: linear-gradient(150deg, #99d8c9, #0d91a5);
   background-size: cover;
   height: 100vh;
   margin: 0;
@@ -69,7 +69,7 @@ body {
 .currentDate {
   font-size: 30px;
   font-weight: bold;
-  font-family: sans-serif;
+  font-family: "Roboto Slab", serif;
 }
 
 .navbar {
@@ -99,6 +99,7 @@ body {
   flex-direction: column;
 }
 
+.intro,
 .main,
 .temperature,
 .location {
@@ -106,7 +107,11 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  font-family: sans-serif;
+  font-family: "Roboto Slab", serif;
+}
+
+.intro {
+  font-size: 25px;
 }
 
 .units {
@@ -184,4 +189,28 @@ body.weather-broken-clouds {
 
 body.weather-clear {
   background: linear-gradient(150deg, #a1ddfb, #1887e8);
+}
+
+body.weather-few-clouds {
+  background: linear-gradient(150deg, #a5a5a5, #11122f);
+}
+
+body.weather-scattered-clouds {
+  background: linear-gradient(150deg, #a5a5a5, #5b5d9c);
+}
+
+body.weather-drizzle {
+  background: linear-gradient(150deg, #99d8c9, #0d91a5);
+}
+
+body.weather-rain {
+  background: linear-gradient(150deg, #787579, #a50da5);
+}
+
+body.weather-snow {
+  background: linear-gradient(150deg, #ffffff, #83aed3);
+}
+
+body.weather-mist {
+  background: linear-gradient(150deg, #ffffff, #339764);
 }
