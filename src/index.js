@@ -1,19 +1,11 @@
 import { showCurrentDate } from "./date";
 import { displayWeather, getWeatherInfo} from "./weather";
-import { API_key} from "./weather";
+import { API_key, clear} from "./weather";
 
 
 document.addEventListener("DOMContentLoaded", () => {
    
     showCurrentDate();
-
-    // with click event, it will execute the getCurrentLocation function
-    // searchButton.addEventListener("click", (event) => {
-    //     event.preventDefault();
-    //     navigator.geolocation.getCurrentPosition(geoCurrentLocation);
-    // });
-    
-    // const searchButton = document.querySelector("#searchButton");
 
     const userInputSearch = document.querySelector(".inputCity_button");
     let main = document.querySelector('.main');
@@ -32,6 +24,27 @@ document.addEventListener("DOMContentLoaded", () => {
         f();
         
     });
+
+    const toggle = document.querySelector('.units');
+    toggle.addEventListener("change", (event) => {
+        event.preventDefault();
+
+        //default is imperial and checked is standard
+        const f = () => {
+            toggle.classList.forEach((ele) => {
+                if(ele !== "units") {
+                    toggle.classList.remove(ele);
+                }
+            });
+            if(event.target.checked) {
+                toggle.classList.add("standard");
+            } else {
+                toggle.classList.add("imperial");
+            }
+        }
+        f();
+
+    })
 
     //this function will be used as a call back function
     function geoCurrentLocation(position) {

@@ -54,6 +54,10 @@ function displayWeather(allInfo, mainWeather, main) {
     let feelsLikeTemp = document.querySelector('#feels_like_temp');
     let location = document.querySelector('.location');
     let wind = document.querySelector('#wind');
+    let imperial = document.querySelector('.imperial');
+    let metric = document.querySelector('.metric');
+
+    
 
     //change class depending on weather condition
     let iconRes = allInfo.weather[0].icon;
