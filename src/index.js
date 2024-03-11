@@ -1,6 +1,7 @@
 import { showCurrentDate } from "./date";
-import { displayWeather, getWeatherInfo} from "./weather";
-import { API_key, clear} from "./weather";
+import { displayWeather, getWeatherInfo, updateTemperatureDisplay} from "./weather";
+import { getTempInfo } from "./temp"
+import { API_key} from "./weather";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,23 +29,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.querySelector('.units');
     toggle.addEventListener("change", (event) => {
         event.preventDefault();
-
-        //default is imperial and checked is standard
         const f = () => {
-            toggle.classList.forEach((ele) => {
-                if(ele !== "units") {
-                    toggle.classList.remove(ele);
-                }
-            });
-            if(event.target.checked) {
-                toggle.classList.add("standard");
+            let isMetric = toggle.classList.contains('metric');
+            if(isMetric) {
+                toggle.classList.remove('metric');
+                toggle.classList.add('imperial')
             } else {
-                toggle.classList.add("imperial");
+                // If currently in imperial, switch to metric
+                toggle.classList.remove('imperial');
+                toggle.classList.add('metric');
+            }
+            const userInput = document.querySelector(".inputCity_mycity").value;
+            if (userInput) {
+                getTempInfo(userInput);
             }
         }
         f();
+    });
 
-    })
+    
 
     //this function will be used as a call back function
     function geoCurrentLocation(position) {

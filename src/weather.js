@@ -6,9 +6,8 @@ function getWeatherInfo(cityName) {
     let main = document.querySelector('.main');
     let mainWeather = document.querySelector('.main_weather');
     let body = document.querySelector('body');
-    // main.className = 'main';
-    
-    // mainWeather.className = 'main_weather';
+
+
     main.classList.forEach((ele) => {
         if (ele !== 'main') {
             main.classList.remove(ele);
@@ -49,15 +48,16 @@ function displayWeather(allInfo, mainWeather, main) {
     intro.innerHTML = `<p>Weather in ${allInfo.name}</p>`
 
     let mainDes = document.querySelector('#main_description');
+
     let temp = document.querySelector('#temp');
     let tempMinMax = document.querySelector('#temp_min_max');
     let feelsLikeTemp = document.querySelector('#feels_like_temp');
+
     let location = document.querySelector('.location');
     let wind = document.querySelector('#wind');
+
     let imperial = document.querySelector('.imperial');
     let metric = document.querySelector('.metric');
-
-    
 
     //change class depending on weather condition
     let iconRes = allInfo.weather[0].icon;
@@ -85,16 +85,6 @@ function displayWeather(allInfo, mainWeather, main) {
     //weather main description
     mainDes.innerHTML = `<p>${capitalize(allInfo.weather[0].description)}</p>`;
 
-    //units change functions
-    function kTof (kelvin) {
-        return (Math.round(kelvin-273.15) * (9/5) + 32).toFixed(0);
-    }
-    function kToc (kelvin) {
-        return (Math.round(kelvin -273.15)).toFixed(0);
-    }
-    function msTomph(ms) {
-        return (Math.round(ms * 2.237)).toFixed(2);
-    }
 }
 
 function changeClass(iconRes, mainWeather, main) {
@@ -153,4 +143,39 @@ function capitalize(str) {
     });
     return res.join(' ');
 }
-export { displayWeather, getWeatherInfo, API_key };
+
+//units change functions
+function kTof (kelvin) {
+    return (Math.round(kelvin-273.15) * (9/5) + 32).toFixed(0);
+}
+function kToc (kelvin) {
+    return (Math.round(kelvin -273.15)).toFixed(0);
+}
+function msTomph(ms) {
+    return (Math.round(ms * 2.237)).toFixed(2);
+}
+
+function updateTemperatureDisplay(allInfo,isMetric) {
+    
+    const temp = document.querySelector('#temp');
+    const tempMinMax = document.querySelector('#temp_min_max');
+    const feelsLikeTemp = document.querySelector('#feels_like_temp');
+
+    temp.innerHTML = "";
+    tempMinMax.innerHTML = "";
+    feelsLikeTemp.innerHTML = "";
+
+    if(isMetric) {
+        temp.innerHTML = `<p>Temperature: ${kToc(JSON.parse(allInfo.main.temp))}°C </p>`;
+        tempMinMax.innerHTML = `<p>Min/Max: ${kToc(JSON.parse(allInfo.main.temp_min))}°C / ${kToc(JSON.parse(allInfo.main.temp_max))}°C</p>`;
+        feelsLikeTemp.innerHTML = `<p>Feels like temp: ${kToc(JSON.parse(allInfo.main.feels_like))}°C</p>`;   
+    } else {
+        temp.innerHTML = `<p>Temperature: ${kTof(JSON.parse(allInfo.main.temp))}°F</p>`;
+        tempMinMax.innerHTML = `<p>Min/Max: ${kTof(JSON.parse(allInfo.main.temp_min))}°F / ${kTof(JSON.parse(allInfo.main.temp_max))}°F</p>`;
+        feelsLikeTemp.innerHTML = `<p>Feels like temp: ${kTof(JSON.parse(allInfo.main.feels_like))}°F</p>`;
+    }
+
+}
+
+
+export { displayWeather, getWeatherInfo, API_key, updateTemperatureDisplay};
