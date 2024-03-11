@@ -6,12 +6,12 @@ const API_key = "fdd45cf25d9946c90283a1437ded43dc";
 function getWeatherInfo(cityName) {
     let main = document.querySelector('.main');
     let mainWeather = document.querySelector('.main_weather');
-    
+
     console.log(main);
     console.log(mainWeather);
     // main.className = 'main';
     
-    mainWeather.className = 'main_weather';
+    // mainWeather.className = 'main_weather';
     main.classList.forEach((ele) => {
         if (ele !== 'main') {
             main.classList.remove(ele);
@@ -45,6 +45,7 @@ function displayWeather(allInfo, mainWeather, main) {
     let tempMinMax = document.querySelector('#temp_min_max');
     let feelsLikeTemp = document.querySelector('#feels_like_temp');
     let location = document.querySelector('.location');
+    let wind = document.querySelector('#wind');
 
     //change class depending on weather condition
     let iconRes = allInfo.weather[0].icon;
@@ -56,9 +57,9 @@ function displayWeather(allInfo, mainWeather, main) {
                             ${kToc(JSON.parse(allInfo.main.temp_max))}°C (${kTof(JSON.parse(allInfo.main.temp_max))}°F)</p>`;
     feelsLikeTemp.innerHTML = `<p>Feels like temp: ${kToc(JSON.parse(allInfo.main.feels_like))}°C (${kTof(JSON.parse(allInfo.main.feels_like))}°F)</p>`;
     location.innerHTML = `<p>Location: ${allInfo.name}, ${allInfo.sys.country}</p>`;
+    wind.innerHTML = `<p>Wind: ${JSON.parse(allInfo.wind.speed)}m/s / ${msTomph(JSON.parse(allInfo.wind.speed))} mph</p>`
 
     // icon depends on weather condition
-    
     const existingImage = mainWeather.querySelector('img');
     if (existingImage) {
         // If there is an existing image, remove it
@@ -68,17 +69,20 @@ function displayWeather(allInfo, mainWeather, main) {
     const url = `https://openweathermap.org/img/wn/${iconRes}@2x.png`;
     weatherIcon.src = url;
     mainWeather.appendChild(weatherIcon);
+
+    //weather main description
     mainDes.innerHTML = `<p>${allInfo.weather[0].description}</p>`;
 
-    // put the weather icon depending on the weather description.
-
+    //units change functions
     function kTof (kelvin) {
         return (Math.round(kelvin-273.15) * (9/5) + 32).toFixed(0);
     }
     function kToc (kelvin) {
         return (Math.round(kelvin -273.15)).toFixed(0);
     }
-    
+    function msTomph(ms) {
+        return (Math.round(ms * 2.237)).toFixed(2);
+    }
 }
 
 function changeClass(iconRes, mainWeather, main) {
@@ -88,8 +92,14 @@ function changeClass(iconRes, mainWeather, main) {
         main.classList.add("weather-clear")
         mainWeather.classList.add("clear_sky")
     } else if (iconRes.startsWith("02")) {
-        main.classList.add("weather-cloudy")
-        mainWeather.classList.add("clouds")
+        main.classList.add("weather-few-clouds")
+        mainWeather.classList.add("few-clouds")
+    } else if (iconRes.startsWith("03")) {
+        main.classList.add("weather-scattered-clouds")
+        mainWeather.classList.add("scattered-clouds")
+    } else if (iconRes.startsWith("04")) {
+        main.classList.add("weather-broken-clouds")
+        mainWeather.classList.add("broken-clouds")
     } else if (iconRes.startsWith("09")) {
         main.classList.add("weather-drizzle")
         mainWeather.classList.add("drizzle")
@@ -99,6 +109,9 @@ function changeClass(iconRes, mainWeather, main) {
     } else if (iconRes.startsWith("13")) {
         main.classList.add("weather-snow")
         mainWeather.classList.add("snow")
+    } else if (iconRes.startsWith("50")) {
+        main.classList.add("weather-mist")
+        mainWeather.classList.add("mist")
     } else {
         main.classList.add("others")
         mainWeather.classList.add("others")
