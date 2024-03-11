@@ -24,6 +24,7 @@
     flex-direction: column;
     font-family: "Signika", sans-serif;
 }
+// Search button styling
 button {
     font-family: system-ui, sans-serif;
     font-size: 15px;
@@ -34,6 +35,7 @@ button {
     border-radius: 10px;
 
 }
+
 button {
     --c:  #E95A49; /* the color*/
     
@@ -58,13 +60,16 @@ button {
     color: #fff;
 }
 
+// default body
 body{
-    height: 930px;
     // background: linear-gradient(150deg, #d1eef7, #9cc7ff); 
     flex-direction: column;
     align-items: center;
     background-image: url('https://source.unsplash.com/w4WU2PZ9bPg');
     background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .currentDate {
@@ -85,7 +90,7 @@ body{
     display: flex;
     justify-content: center;
     gap: 10px; /* Adjust the space between icons */
-}s
+}
 
 .weatherInfo {
     display: flex;
@@ -116,7 +121,6 @@ body{
         position: absolute;
         appearance: none;
         -webkit-appearance: none;
-
     }
  }
  
@@ -181,3 +185,13 @@ transition: 0.2s;
     box-shadow: 1px 2px 3px #00000020;
 }
 
+//background based on weather condition
+body.weather-broken-clouds  {
+    background: linear-gradient(150deg, #a5a5a5, #2a2a2a); 
+
+}
+
+body.weather-clear {
+    background: linear-gradient(150deg, #a1ddfb, #1887e8); 
+
+}

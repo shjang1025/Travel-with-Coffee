@@ -57,11 +57,13 @@ button:active {
 }
 
 body {
-  height: 930px;
   flex-direction: column;
   align-items: center;
   background-image: url("https://source.unsplash.com/w4WU2PZ9bPg");
   background-size: cover;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 .currentDate {
@@ -84,7 +86,7 @@ body {
   gap: 10px; /* Adjust the space between icons */
 }
 
-s .weatherInfo {
+.weatherInfo {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -174,4 +176,12 @@ s .weatherInfo {
   left: 34px;
   background: #fff;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1254901961);
+}
+
+body.weather-broken-clouds {
+  background: linear-gradient(150deg, #a5a5a5, #2a2a2a);
+}
+
+body.weather-clear {
+  background: linear-gradient(150deg, #a1ddfb, #1887e8);
 }

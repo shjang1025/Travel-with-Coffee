@@ -6,9 +6,7 @@ const API_key = "fdd45cf25d9946c90283a1437ded43dc";
 function getWeatherInfo(cityName) {
     let main = document.querySelector('.main');
     let mainWeather = document.querySelector('.main_weather');
-
-    console.log(main);
-    console.log(mainWeather);
+    let body = document.querySelector('body');
     // main.className = 'main';
     
     // mainWeather.className = 'main_weather';
@@ -23,6 +21,15 @@ function getWeatherInfo(cityName) {
             mainWeather.classList.remove(ele);
         }
     });
+    
+    body.classList.forEach((ele) => {
+        if(ele === "weather-clear" || ele === "weather-few-clouds" || 
+        ele === "weather-scattered-clouds" || ele === "weather-drizzle" || ele === "weather-rain" || 
+        ele === "weather-snow" || ele === "weather-broken-clouds" || ele === "others") {
+            body.classList.remove(ele);
+        }
+    });
+        
     
     // weather info can be fetched from this API with CITY NAME (user input)
     let WeatherAPI = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_key}`
@@ -39,7 +46,7 @@ function getWeatherInfo(cityName) {
 }
 
 function displayWeather(allInfo, mainWeather, main) {
-    
+
     let mainDes = document.querySelector('#main_description');
     let temp = document.querySelector('#temp');
     let tempMinMax = document.querySelector('#temp_min_max');
@@ -86,35 +93,50 @@ function displayWeather(allInfo, mainWeather, main) {
 }
 
 function changeClass(iconRes, mainWeather, main) {
-    console.log(main);
-    console.log(mainWeather);
     if (iconRes.startsWith("01")) {
         main.classList.add("weather-clear")
         mainWeather.classList.add("clear_sky")
+        document.body.classList.add("weather-clear");
     } else if (iconRes.startsWith("02")) {
         main.classList.add("weather-few-clouds")
         mainWeather.classList.add("few-clouds")
+        document.body.classList.add("weather-few-clouds");
+
     } else if (iconRes.startsWith("03")) {
         main.classList.add("weather-scattered-clouds")
         mainWeather.classList.add("scattered-clouds")
+        document.body.classList.add("weather-scattered-clouds");
+
     } else if (iconRes.startsWith("04")) {
         main.classList.add("weather-broken-clouds")
         mainWeather.classList.add("broken-clouds")
+        document.body.classList.add("weather-broken-clouds");
+
     } else if (iconRes.startsWith("09")) {
         main.classList.add("weather-drizzle")
         mainWeather.classList.add("drizzle")
+        document.body.classList.add("weather-drizzle");
+
     } else if (iconRes.startsWith("10")) {
         main.classList.add("weather-rain")
         mainWeather.classList.add("heavy_rain")
+        document.body.classList.add("weather-rain");
+
     } else if (iconRes.startsWith("13")) {
         main.classList.add("weather-snow")
         mainWeather.classList.add("snow")
+        document.body.classList.add("weather-snow");
+
     } else if (iconRes.startsWith("50")) {
         main.classList.add("weather-mist")
         mainWeather.classList.add("mist")
+        document.body.classList.add("weather-mist");
+
     } else {
         main.classList.add("others")
         mainWeather.classList.add("others")
+        document.body.classList.add("others");
+
     }
 }
 
