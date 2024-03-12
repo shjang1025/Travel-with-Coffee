@@ -1,10 +1,7 @@
 .snowflake {
 
-    /* background: linear-gradient(150deg, hsl(0, 0%, 84%), #464646);  */
     animation: fall 5s linear infinite;
-    position: absolute;
-    /* background: linear-gradient(transparent, #ffffff); */
-  
+    position: absolute;  
   }  
   
   @keyframes fall {

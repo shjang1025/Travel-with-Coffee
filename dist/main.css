@@ -62,8 +62,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   padding-top: 15px;
-  margin-left: 800px;
-  margin-right: 800px;
+  margin: auto;
   padding-bottom: 30px;
   background: rgba(255, 255, 255, 0.3);
   box-shadow: 0 5px 20px 0 rgba(31, 31, 255, 0.2);
@@ -97,24 +96,15 @@ button {
 }
 
 button {
-  --c: #E95A49; /* the color*/
-  box-shadow: 0 0 0 0.1em inset var(--c);
-  --_g: linear-gradient(var(--c) 0 0) no-repeat;
-  background: var(--_g) calc(var(--_p, 0%) - 100%) 0%, var(--_g) calc(200% - var(--_p, 0%)) 0%, var(--_g) calc(var(--_p, 0%) - 100%) 100%, var(--_g) calc(200% - var(--_p, 0%)) 100%;
-  background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+  --color: #ff9e17; /* the color*/
+  box-shadow: 0 0 0 0.1em inset var(--color);
+  --_g: linear-gradient(var(--color) 0 0) no-repeat;
+  background: rgba(255, 255, 255, 0);
   outline-offset: 0.1em;
-  transition: background-size 0.4s, background-position 0s 0.4s;
 }
 
 button:hover {
-  --_p: 100%;
-  transition: background-position 0.4s, background-size 0s;
-}
-
-button:active {
-  box-shadow: 0 0 9000000000q inset rgba(0, 0, 0, 0.6);
-  background-color: var(--c);
-  color: #fff;
+  background-color: var(--color);
 }
 
 body {
@@ -175,13 +165,13 @@ body {
   width: 58px;
   height: 28px;
   background: #fff;
-  border: 2px solid #daa;
+  border: 2px solid #ff9e17;
   border-radius: 20px;
   transition: 0.2s;
 }
 
 .switch_label:hover {
-  background: #efefef;
+  background: #ffc677;
 }
 
 .onoff {
@@ -192,17 +182,17 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 20px;
-  background: #daa;
+  background: #ff9e17;
   transition: 0.2s;
 }
 
 #switch:checked + .switch_label {
-  background: #c44;
-  border: 2px solid #c44;
+  background: #ff9e17;
+  border: 2px solid #ff9e17;
 }
 
 #switch:checked + .switch_label:hover {
-  background: #e55;
+  background: #ffc677;
 }
 
 /* move */

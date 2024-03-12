@@ -1,8 +1,8 @@
 import { showCurrentDate } from "./date";
 import { displayWeather, getWeatherInfo, updateTemperatureDisplay} from "./weather";
 import { getTempInfo } from "./temp"
-import { drizzle } from "./drizzle";
-import { heavyRain } from "./heavy_rain";
+// import { drizzle } from "./drizzle";
+// import { heavyRain } from "./heavy_rain";
 import { API_key} from "./weather";
 
 
