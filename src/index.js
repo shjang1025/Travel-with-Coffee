@@ -32,11 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
         f();
     });
 
-    // opttionSelect.addEventListener("select", (event) => {
-    //     event.preventDefault();
-    //     navigator.geolocation.getCurrentPosition(geoCurrentLocation);
-    // })
-    
 
     const toggle = document.querySelector('.units');
     toggle.addEventListener("change", (event) => {
@@ -54,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const userInput = document.querySelector(".inputCity_mycity").value;
             if (userInput) {
                 getTempInfo(userInput);
+            
             } else {
                 const curr = document.querySelector('.location p').textContent;
                 getTempInfo(curr.split(",")[0].split(" ")[1]);
