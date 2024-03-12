@@ -1,13 +1,15 @@
 import { showCurrentDate } from "./date";
 import { displayWeather, getWeatherInfo, updateTemperatureDisplay} from "./weather";
 import { getTempInfo } from "./temp"
+import { drizzle } from "./drizzle";
+import { heavyRain } from "./heavy_rain";
 import { API_key} from "./weather";
 
 
 document.addEventListener("DOMContentLoaded", () => {
    
     showCurrentDate();
-
+    
     const userInputSearch = document.querySelector(".inputCity_button");
     let main = document.querySelector('.main');
     let mainWeather = document.querySelector('.main_weather');
@@ -23,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
             getWeatherInfo(userInput);
         }
         f();
-        
     });
 
     const toggle = document.querySelector('.units');
@@ -50,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         f();
     });
 
-    
 
     //this function will be used as a call back function
     function geoCurrentLocation(position) {
@@ -69,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(err => console.error(err));   
     }
     navigator.geolocation.getCurrentPosition(geoCurrentLocation);
+
+    
 
 });
 

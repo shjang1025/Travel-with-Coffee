@@ -116,11 +116,18 @@ body{
     flex-direction: column;
     font-family: "Roboto Slab", serif;
 }
+
 .intro {
     font-size: 25px;
 }
+
 .units {
     position: relative;
+    position: relative; 
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    margin: 50px auto;
     #switch {
         position: absolute;
         appearance: none;
@@ -129,13 +136,6 @@ body{
  }
  
 
-.units { 
-    position: relative; 
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    margin: 50px auto;
-}
 
 #switch {
     position: absolute;
@@ -162,15 +162,15 @@ background: #efefef;
 }
 
 .onoff {
-position: absolute;
-top: 4px;
-left: 3px;
-display: inline-block;
-width: 20px;
-height: 20px;
-border-radius: 20px;
-background: #daa;
-transition: 0.2s;
+    position: absolute;
+    top: 4px;
+    left: 3px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #daa;
+    transition: 0.2s;
 }
 
 #switch:checked+.switch_label {
@@ -214,11 +214,13 @@ body.weather-drizzle {
 }
 
 body.weather-rain {
-    background: linear-gradient(150deg, #787579, #a50da5); 
+    background: linear-gradient(150deg, #787579, #1b1b1b); 
 }
 
+
 body.weather-snow {
-    background: linear-gradient(150deg, #ffffff, #83aed3); 
+    background: linear-gradient(150deg, #ffffff, #83aed3);
+
 }
 body.weather-mist {
     background: linear-gradient(150deg, #ffffff, #339764); 
