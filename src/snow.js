@@ -25,7 +25,7 @@ function snow() {
       newDiv.style.left = `${xPos}px`;
       // newDiv.style.height = `${size_h}px`;
       newDiv.style.top = '0';
-      newDiv.style.bottom = '100'; 
+      newDiv.style.bottom = '100';   
       // newDiv.style.animationDelay = `${delay}s`;
       newDiv.style.animationDuration = `${1+duration}s`;
 
