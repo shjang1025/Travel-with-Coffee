@@ -1,7 +1,14 @@
-
+.currentDate {
+    // padding-top: 15px;
+    margin: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: "Roboto Slab", serif;
+}
 .inputCity_mycity {
     padding: 12px 12px;
-    margin: 8px 0px;
+    width: 300px;
+    margin: 30px 0px;
     box-sizing:content-box;
     border-radius: 10px;
     border: none;
@@ -15,21 +22,77 @@
         cursor: pointer;
     }
 }
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding-top: 15px;
+    // padding-bottom: 8px;
+    // margin: 10px;
+}
+
+.navbar_logo p {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    // gap: 25px; /* Adjust the space between icons */
+}
+.navbar_logo a {
+    color: rgb(45, 45, 45);
+    margin-right: 30px;
+    // justify-content: center;
+}
+
+.navbar_logo a:hover {
+    color: rgb(245, 245, 245);
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 12px 12px;
+    align-content: center;
+    // padding: 12px 12px;
     flex-direction: column;
     font-family: "Roboto Slab", serif;
+}
+.weatherInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 15px;
+    margin-left: 800px;
+    margin-right: 800px;
+    padding-bottom: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow:  0 5px 20px 0 rgba(31, 31, 255, .2);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    max-width: 1000px;
+    min-width: 600px; 
+}
+.user-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.units.imperial {
+    padding-bottom: 8px;
 }
 // Search button styling
 button {
     font-family: system-ui, sans-serif;
     font-size: 15px;
     cursor: pointer;
-    padding: .1em .6em;
+    padding: .2em .5em;
     font-weight: bold;  
     border: none;
     border-radius: 10px;
@@ -62,42 +125,18 @@ button {
 
 // default body
 body{
-    // background: linear-gradient(150deg, #d1eef7, #9cc7ff); 
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(150deg, #99d8c9, #0d91a5); 
+    justify-content: center;
+    background: linear-gradient(150deg, #e1e4e3, #21a7bc); 
     background-size: cover;
     height: 100vh;
     margin: 0;
     padding: 0;
 }
 
-.currentDate {
-    padding-top: 15px;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: "Roboto Slab", serif;}
 
-.navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 8px;
-}
 
-.navbar_logo {
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* Adjust the space between icons */
-}
-
-.weatherInfo {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-
-}
 
 .main {
     display: flex;
@@ -110,9 +149,8 @@ body{
 .main, 
 .temperature,
 .location{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // justify-content: space-between;
+    // align-items: center;
     flex-direction: column;
     font-family: "Roboto Slab", serif;
 }
@@ -122,10 +160,9 @@ body{
 }
 
 .units {
-    position: relative;
     position: relative; 
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     text-align: center;
     margin: 50px auto;
     #switch {
@@ -196,7 +233,8 @@ body.weather-broken-clouds  {
 }
 
 body.weather-clear {
-    background: linear-gradient(150deg, #a1ddfb, #1887e8); 
+    background: linear-gradient(150deg, #a1ddfb, #1887e8);
+    // background-image: url(https://source.unsplash.com/ROVBDer29PQ); 
 
 }
 

@@ -13,20 +13,19 @@ function heavyRain() {
         let size_h = Math.floor((Math.random() * 50));
         let size_w = Math.floor((Math.random() * 5));
         //decrease delay time if it rains heavily
-        // let delay = Math.random();
+
         let duration = Math.random() * 1.5;
         //create 100 div 
-        const newSpan = document.createElement("span");
-        newSpan.classList.add("raindrop");
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("raindrop");
 
-        newSpan.style.width = `${size_w}px`;
-        newSpan.style.left = `${xPos}px`;
-        newSpan.style.height = `${size_h}px`;
-        newSpan.style.top = '0'; 
-        // newSpan.style.animationDelay = `${delay}s`;
-        newSpan.style.animationDuration = `${1+duration}s`;
+        newDiv.style.width = `${size_w}px`;
+        newDiv.style.left = `${xPos}px`;
+        newDiv.style.height = `${size_h}px`;
+        newDiv.style.top = '0'; 
+        newDiv.style.animationDuration = `${1+duration}s`;
 
-        rain.appendChild(newSpan);
+        rain.appendChild(newDiv);
         raindrop++;
     }
 }

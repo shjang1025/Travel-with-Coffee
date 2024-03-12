@@ -15,21 +15,19 @@ function drizzle() {
         let height = Math.floor(window.innerHeight);
         
         //relatively increase delay time if it rains heavily
-        // let delay = Math.random();
         let duration = Math.random() * 3;
     
-        const newSpan = document.createElement("span");
-        newSpan.classList.add("drizzle");
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("drizzle");
 
-        newSpan.style.top = '0'; 
-        newSpan.style.width = size_w + 'px';
-        newSpan.style.left = xPos + 'px';
-        newSpan.style.height = size_h + 'px';
+        newDiv.style.top = '0'; 
+        newDiv.style.width = size_w + 'px';
+        newDiv.style.left = xPos + 'px';
+        newDiv.style.height = size_h + 'px';
 
-        // newSpan.style.animationDelay = `${delay}s`;
-        newSpan.style.animationDuration = 1 + duration + 's';
+        newDiv.style.animationDuration = 1 + duration + 's';
 
-        drizzleRain.appendChild(newSpan);
+        drizzleRain.appendChild(newDiv);
         raindrop++;
     }
 }
