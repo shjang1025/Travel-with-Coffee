@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showCurrentDate();
     
     const userInputSearch = document.querySelector(".inputCity_button");
+    const opttionSelect = document.querySelector("#inputCity_mycity");
     let main = document.querySelector('.main');
     let mainWeather = document.querySelector('.main_weather');
 
@@ -21,11 +22,21 @@ document.addEventListener("DOMContentLoaded", () => {
             if (userInput.trim() === "") {
                 alert("Please enter a city name.");
                 return;
+            } else if(userInput === "📍Current Location") {
+                event.preventDefault();
+                navigator.geolocation.getCurrentPosition(geoCurrentLocation);
+            } else {
+                getWeatherInfo(userInput);
             }
-            getWeatherInfo(userInput);
         }
         f();
     });
+
+    // opttionSelect.addEventListener("select", (event) => {
+    //     event.preventDefault();
+    //     navigator.geolocation.getCurrentPosition(geoCurrentLocation);
+    // })
+    
 
     const toggle = document.querySelector('.units');
     toggle.addEventListener("change", (event) => {
@@ -68,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(allInfo => displayWeather(allInfo, mainWeather, main))
             .catch(err => console.error(err));   
     }
-    navigator.geolocation.getCurrentPosition(geoCurrentLocation);
+    // navigator.geolocation.getCurrentPosition(geoCurrentLocation);
 
     
 

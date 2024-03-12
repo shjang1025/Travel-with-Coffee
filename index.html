@@ -34,10 +34,14 @@
         <div class="currentDate">
         </div>
 
-        <form class="inputCity">
-            <input type="text" class="inputCity_mycity" id="mycity" placeholder="Seattle">
+        <div class="user-input">
+            <input list="inputCity_mycity" class="inputCity_mycity" placeholder="Type your city..">
+            <datalist id="inputCity_mycity">
+                <option value="📍Current Location"></option>
+            </datalist>
             <button class="inputCity_button">🔍 Search</button>
-        </form>
+        </div>
+            
     </div>
 
     <div class="weatherInfo">
