@@ -25,7 +25,7 @@ function getWeatherInfo(cityName) {
     body.classList.forEach((ele) => {
         if(ele === "weather-clear" || ele === "weather-few-clouds" || 
         ele === "weather-scattered-clouds" || ele === "weather-drizzle" || ele === "weather-rain" || 
-        ele === "weather-snow" || ele === "weather-broken-clouds" || ele === "others") {
+        ele === "weather-snow" || ele === "weather-broken-clouds" || ele === "weather-mist" || ele === "others") {
             body.classList.remove(ele);
         }
     });
