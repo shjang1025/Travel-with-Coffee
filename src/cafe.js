@@ -1,6 +1,10 @@
 import {yelp_API_key} from "./api_key";
+import { stateAbbreviations } from "./data";
 
 async function getCafeInfo(cityName) {
+    // yelp api sometimes accept abbreviation version of state name. 
+    // change normal city name to abbreviation version 
+    if(stateAbbreviations.hasOwnProperty(cityName.toUpperCase())){cityName = stateAbbreviations[cityName.toUpperCase()]};
     let url = 'https://corsproxy.io/?' + encodeURIComponent(`https://api.yelp.com/v3/businesses/search?location=${cityName}&categories=coffee&sort_by=review_count&limit=5`);
     let apiKey = yelp_API_key;
 

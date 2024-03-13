@@ -79,8 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(allInfo => displayWeather(allInfo, mainWeather, main))
             .catch(err => console.error(err));   
     }
-    // navigator.geolocation.getCurrentPosition(geoCurrentLocation);
-
     
 
 });

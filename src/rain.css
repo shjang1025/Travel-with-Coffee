@@ -19,10 +19,10 @@
 
 @keyframes fall {
   0%{
-    transform: translateY(-200px);
+    transform: translateY(1300px);
   }
   100%{
-    transform: translateY(200px);
+    transform: translateY(2000px);
   }
 
 }

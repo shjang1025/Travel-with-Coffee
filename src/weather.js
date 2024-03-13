@@ -8,7 +8,7 @@ function getWeatherInfo(cityName) {
     let main = document.querySelector('.main');
     let mainWeather = document.querySelector('.main_weather');
     let body = document.querySelector('body');
-
+    let curr = document.querySelector('.currentDate');
 
     main.classList.forEach((ele) => {
         if (ele !== 'main') {
@@ -29,6 +29,12 @@ function getWeatherInfo(cityName) {
             body.classList.remove(ele);
         }
     });
+
+    if(curr.classList.length === 2) {
+        curr.classList.forEach((ele) => {
+            if(ele !== 'currentDate') {curr.classList.remove(ele)}
+        })
+    };
         
     
     // weather info can be fetched from this API with CITY NAME (user input)
@@ -42,7 +48,14 @@ function getWeatherInfo(cityName) {
             }
         }) // promise object will be returned 
         .then(allInfo => displayWeather(allInfo, mainWeather, main))
-        .catch(err => console.error(err));
+        .catch(err => {
+            if(err.message === '404') {
+                alert("Please enter a city name correctly. No abbreviation accepted!");
+
+            } else {
+                console.error(err)
+            }
+        });
 }
 
 function displayWeather(allInfo, mainWeather, main) {
@@ -112,6 +125,8 @@ function displayWeather(allInfo, mainWeather, main) {
 }
 
 function changeClass(iconRes, mainWeather, main) {
+    let curr = document.querySelector('.currentDate');
+
     if (iconRes.startsWith("01")) {
         main.classList.add("weather-clear")
         mainWeather.classList.add("clear_sky")
@@ -145,6 +160,7 @@ function changeClass(iconRes, mainWeather, main) {
         main.classList.add("weather-snow")
         mainWeather.classList.add("snow")
         document.body.classList.add("weather-snow");
+        curr.classList.add("font-black")
 
     } else if (iconRes.startsWith("50")) {
         main.classList.add("weather-mist")
