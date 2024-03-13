@@ -1,10 +1,9 @@
 import { showCurrentDate } from "./date";
 import { displayWeather, getWeatherInfo, updateTemperatureDisplay} from "./weather";
 import { getTempInfo } from "./temp"
-// import { drizzle } from "./drizzle";
-// import { heavyRain } from "./heavy_rain";
-import { API_key} from "./weather";
-
+import { API_key, yelp_API_key} from "./api_key";
+import { getCafeInfo } from "./cafe";
+import { geoToCity, showPosition} from "./geo_city";
 
 document.addEventListener("DOMContentLoaded", () => {
    
@@ -25,8 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if(userInput === "📍Current Location") {
                 event.preventDefault();
                 navigator.geolocation.getCurrentPosition(geoCurrentLocation);
+                navigator.geolocation.getCurrentPosition(showPosition);
             } else {
+                event.preventDefault();
                 getWeatherInfo(userInput);
+                getCafeInfo(userInput);
             }
         }
         f();
@@ -64,6 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
         let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_key}`;
+        console.log(lat);
+        console.log(lng);
         fetch(url)
             .then(res => {
                 if(res.ok) {

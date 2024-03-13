@@ -1,8 +1,7 @@
 import { heavyRain } from "./heavy_rain";
 import { snow } from "./snow";
 import { clearDrizzle, clearRain, clearSnow } from "./clear_animation";
-
-const API_key = "fdd45cf25d9946c90283a1437ded43dc";
+import { API_key } from "./api_key";
 
 //fetching the data using weatherapi, with user Input
 function getWeatherInfo(cityName) {
@@ -68,8 +67,9 @@ function displayWeather(allInfo, mainWeather, main) {
 
 
     //parsing main object and fetch temp (integer) - kelvin to celsius/farenheit.
+    
     temp.innerHTML = `<p><b>Temperature:</b> <i>${kTof(JSON.parse(allInfo.main.temp))}°F</i></p>`;
-    tempMinMax.innerHTML = `<p><b>Min/Max:</b> <i>${kTof(JSON.parse(allInfo.main.temp_min))}°F / ${kTof(JSON.parse(allInfo.main.temp_max))}°F</i></p>`;
+    tempMinMax.innerHTML = `<p><b>L:</b> <i>${kTof(JSON.parse(allInfo.main.temp_min))}°F</i> / <b>H:</b> <i>${kTof(JSON.parse(allInfo.main.temp_max))}°F</i></p>`;
     feelsLikeTemp.innerHTML = `<p><b>Feels like temp:</b> <i>${kTof(JSON.parse(allInfo.main.feels_like))}°F</i></p>`;
 
     location.innerHTML = `<p><b>Location:</b> <i>${allInfo.name}, ${allInfo.sys.country}</i></p>`;
@@ -192,11 +192,11 @@ function updateTemperatureDisplay(allInfo,isMetric) {
 
     if(isMetric) {
         temp.innerHTML = `<p><b>Temperature:</b> <i>${kToc(JSON.parse(allInfo.main.temp))}°C</i></p>`;
-        tempMinMax.innerHTML = `<p><b>Min/Max:</b> <i>${kToc(JSON.parse(allInfo.main.temp_min))}°C / ${kToc(JSON.parse(allInfo.main.temp_max))}°C</i></p>`;
+        tempMinMax.innerHTML = `<p><b>L:</b> <i>${kToc(JSON.parse(allInfo.main.temp_min))}°C / <b>H:</b> ${kToc(JSON.parse(allInfo.main.temp_max))}°C</i></p>`;
         feelsLikeTemp.innerHTML = `<p><b>Feels like temp:</b> <i>${kToc(JSON.parse(allInfo.main.feels_like))}°C</i></p>`;   
     } else {
         temp.innerHTML = `<p><b>Temperature:</b> <i>${kTof(JSON.parse(allInfo.main.temp))}°F</i></p>`;
-        tempMinMax.innerHTML = `<p><b>Min/Max:</b> <i>${kTof(JSON.parse(allInfo.main.temp_min))}°F / ${kTof(JSON.parse(allInfo.main.temp_max))}°F</i></p>`;
+        tempMinMax.innerHTML = `<p><b>L:</b> <i>${kTof(JSON.parse(allInfo.main.temp_min))}°F / <b>H:</b> ${kTof(JSON.parse(allInfo.main.temp_max))}°F</i></p>`;
         feelsLikeTemp.innerHTML = `<p><b>Feels like temp:</b> <i>${kTof(JSON.parse(allInfo.main.feels_like))}°F</i></p>`;
     }
 

@@ -4,6 +4,7 @@
     font-size: 35px;
     font-weight: bold;
     font-family: "Roboto Slab", serif;
+    color:#232323;
 }
 .inputCity_mycity {
     padding: 12px 12px;
@@ -58,25 +59,35 @@
     flex-direction: column;
     font-family: "Roboto Slab", serif;
 }
-.weatherInfo {
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    font-family: "Roboto Slab", serif;
+}
+
+
+.weatherInfo,
+.cafeRecommendation {
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     flex-direction: column;
-    flex-wrap: wrap;
-    padding-top: 15px;
-    margin: auto;
-    // margin-left: 800px;
-    // margin-right: 800px;
+    row-gap: 10px;
     padding-bottom: 30px;
     background: rgba(255, 255, 255, 0.3);
     box-shadow:  0 5px 20px 0 rgba(31, 31, 255, .2);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     border: 1px solid rgb(0, 0, 0);
-    max-width: 1000px;
-    min-width: 600px; 
+    max-width: 500px;
+    height: 600px;
+    width: 450px;
+    flex: 0 0 auto; /* Prevent items from growing or shrinking */
+    margin: 5px; /* Adjust margin as needed */
 }
 .user-input {
     display: flex;
@@ -139,12 +150,17 @@ body{
 .main, 
 .temperature,
 .location{
-    // justify-content: space-between;
-    // align-items: center;
+    justify-content: space-between;
+    align-items: center;
     flex-direction: column;
     font-family: "Roboto Slab", serif;
 }
-
+#temp, 
+#temp_min_max, 
+#feels_like_temp {
+    justify-content: center;
+    align-items: center;
+}
 .intro {
     font-size: 25px;
 }
