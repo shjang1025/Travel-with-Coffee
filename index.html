@@ -20,80 +20,83 @@
 </head>
 
 <body>
-
-    <nav class="navbar">
-        <div class="navbar_logo">
-            <p>
-                <a href="https://github.com/shjang1025/Weather-App">
-                    <i class="fa-brands fa-github" width="100%" height="100%"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/sohyun-jang-469918115/">
-                    <i class="fa-brands fa-linkedin-in" width="100%" height="100%"></i>
-                </a>
-            </p>
-            
-        </div>
-    </nav>
-
-    
-    <div class="container">
-        <div class="currentDate">
-        </div>
-
-        <div class="user-input">
-            <input list="inputCity_mycity" class="inputCity_mycity" placeholder="Type your city..">
-            <datalist id="inputCity_mycity">
-                <option value="📍Current Location"></option>
-            </datalist>
-            <button class="inputCity_button">🔍 Search</button>
-            <div class="units imperial">
-                <input type="checkbox" id="switch">
-                <label for="switch" class="switch_label">
-                    <span class="onoff"></span>
-                </label>
-            </div>
-        </div>
-
+    <!-- <nav class="navbar">
         
+    </nav> -->
+    <div class="outer">
+        <div class="link-to-mypage">
+            <div class="navbar_logo">
+                <p>
+                    <a href="https://github.com/shjang1025/Weather-App">
+                        <i class="fa-brands fa-github" width="100%" height="100%"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sohyun-jang-469918115/">
+                        <i class="fa-brands fa-linkedin-in" width="100%" height="100%"></i>
+                    </a>
+                </p>
+                
+            </div>
+        </div>
+        <div class="slides1">
+            <h1>Coffee Compass: Find Your Perfect Brew and Weather!</h1>
+            <button id="start-to-explore"><a href="#slides2">Start!</a></button>
+            <!-- <img src="https://source.unsplash.com/0ktbjolsuEk"> -->
+        </div>
+
+        <div class="slides2">
+            <div class="container" id="slides2">
+                <div class="currentDate">
+                </div>
+        
+                <div class="user-input">
+                    <input list="inputCity_mycity" class="inputCity_mycity" placeholder="Type your city..">
+                    <datalist id="inputCity_mycity">
+                        <option value="📍Current Location"></option>
+                    </datalist>
+                    <button class="inputCity_button">🔍 Search</button>
+                    <div class="units imperial">
+                        <input type="checkbox" id="switch">
+                        <label for="switch" class="switch_label">
+                            <span class="onoff"></span>
+                        </label>
+                    </div>
+                </div>
+        
+                
+            </div>
+        
+            <div class="container2">
+                <div class="weatherInfo">
+                    <div class="intro"></div>
+                    <div class="main">
+                        <div class="main_weather"></div>
+                        <img>
+                        <div id="main_description"></div>
+                        <div id="wind"></div>
+                    </div>
+            
+                    <div class="temperature">
+                        <div id="temp"></div>
+                        <div id="temp_min_max"></div>
+                        <div id="feels_like_temp"></div>
+                    </div>
+            
+                    <div class="location"></div>
+                </div>
+        
+                <div class="cafeRecommendation">
+                    <div class="cafe-intro"></div>
+                        <ol class="lists"> 
+                            
+                        </ol>
+        
+                    </div>
+        
+                </div>
+            </div>
+        </div>
     </div>
-
     
 
-    <div class="container2">
-        <div class="weatherInfo">
-            <div class="intro"></div>
-            <div class="main">
-                <div class="main_weather"></div>
-                <img>
-                <div id="main_description"></div>
-                <div id="wind"></div>
-            </div>
-    
-            <div class="temperature">
-                <div id="temp"></div>
-                <div id="temp_min_max"></div>
-                <div id="feels_like_temp"></div>
-            </div>
-    
-            <div class="location"></div>
-        </div>
-
-        <div class="cafeRecommendation">
-            <div class="cafe-intro"></div>
-                <ol class="lists"> 
-                    
-                </ol>
-
-            </div>
-
-        </div>
-    </div>
-
-    <!-- <div class="screen open">
-        <div class="screen text">
-            <h1></h1>
-        </div>
-        <div class="window"></div>
-    </div> -->
 </body>
 </html>

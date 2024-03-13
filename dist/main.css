@@ -1,6 +1,64 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+body {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(150deg, #e1e4e3, #21a7bc);
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.outer {
+  width: 100%;
+  height: 100vh;
+}
+
+.link-to-mypage {
+  height: 0px;
+}
+
+.slides1 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  background-image: url("https://source.unsplash.com/aZuvmlZIAqg");
+  background-size: cover;
+}
+
+.slides1 h1 {
+  font-size: 70px;
+  background: -webkit-linear-gradient(#fffefe, #cccaca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.slides1 #start-to-explore {
+  --color: #ff9e17; /* the color*/
+  box-shadow: 0 0 0 0.1em inset var(--color);
+  --_g: linear-gradient(var(--color) 0 0) no-repeat;
+  background: rgba(255, 255, 255, 0);
+  outline-offset: 0.1em;
+  font-size: 45px;
+  border-radius: 30px;
+}
+
+.slides1 a {
+  text-decoration: none;
+  color: black;
+}
+
+.slides2 {
+  width: 100%;
+  height: 100vh;
+}
+
 .currentDate {
   margin: 20px;
   font-size: 35px;
@@ -30,19 +88,19 @@
   align-items: center;
 }
 
-.navbar_logo p {
+.navbar_logo {
   display: flex;
   justify-content: center;
   font-size: 30px;
 }
 
 .navbar_logo a {
-  color: rgb(45, 45, 45);
+  color: rgb(245, 245, 245);
   margin-right: 30px;
 }
 
 .navbar_logo a:hover {
-  color: rgb(245, 245, 245);
+  color: rgb(150, 108, 198);
 }
 
 .container {
@@ -119,19 +177,9 @@ button {
   outline-offset: 0.1em;
 }
 
+.slides1 #start-to-explore:hover,
 button:hover {
   background-color: var(--color);
-}
-
-body {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(150deg, #e1e4e3, #21a7bc);
-  background-size: cover;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
 }
 
 .main {
