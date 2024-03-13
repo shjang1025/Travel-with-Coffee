@@ -2,18 +2,21 @@ import { getCafeInfo } from "./cafe";
 import { countries } from "./data";
 
 async function geoToCity(lat,lng) {
-    // let url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
     let url = 'https://corsproxy.io/?' + encodeURIComponent(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+    const c = document.querySelector('.cafeRecommendation');
+    const noYelp = document.querySelector('.noYelp');
+    if(noYelp) {noYelp.parentNode.removeChild(noYelp)};
+
     try {
-        const response = await fetch(url);
+        const response = await fetch(url, {'Accept-Language': 'en-US,en;q=0.5s'});
         if (!response.ok) {
             throw new Error('Failed to fetch geo information');
         }
         const allInfo = await response.json();
+        console.log(allInfo);
         if(!countries.includes(allInfo.address.country)) {
-            const c = document.querySelector('.cafeRecommendation');
             console.log(c);
-            c.innerHTML = `<p>Yelp is not supported in this city.</p>`
+            c.innerHTML = `<p class="noYelp">Yelp is not supported in this city.</p>`
         } else {
             getCafeInfo(allInfo.address.town);
         }

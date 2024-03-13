@@ -56,7 +56,7 @@ function displayCafeInfo(allInfo) {
             li.innerHTML = `${name} <br> ${rating} <br> ${location}`;
     
             ol.appendChild(li);
-    
+            
         }
     }
     
