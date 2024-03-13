@@ -13,9 +13,9 @@ async function geoToCity(lat,lng) {
             throw new Error('Failed to fetch geo information');
         }
         const allInfo = await response.json();
-        console.log(allInfo);
+        // console.log(allInfo);
         if(!countries.includes(allInfo.address.country)) {
-            console.log(c);
+            // console.log(c);
             c.innerHTML = `<p class="noYelp">Yelp is not supported in this city.</p>`
         } else {
             getCafeInfo(allInfo.address.town);

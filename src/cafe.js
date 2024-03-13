@@ -43,21 +43,25 @@ function displayCafeInfo(allInfo) {
     if (allInfo === 'No Info') {
         cafeIntro.innerHTML = '<span class="noCafe">Yelp is not supported in this location. Cannot find cafe</span>';
     }else {
-        cafeIntro.innerHTML = `<p class="intro2">5 Coffee Shops in ${userInput}</p>`
+        if(allInfo.total === 0) {
+            cafeIntro.innerHTML = '<span class="noCafe">There are no coffee shops near here</span>'
+
+        } else {
+            cafeIntro.innerHTML = `<p class="intro2">5 Coffee Shops in ${userInput}</p>`
     
-    
-        for(let i = 0; i < 5; i++) {
-            const li = document.createElement('li');
-            li.className = "cafeInfo";
-            const name= `<b>Name: </b>${allInfo.businesses[i].name}`;
-            const r = (JSON.parse(allInfo.businesses[i].rating).toFixed(1));
-            const rating = `<b>Rating: </b>${fancyRate(r)}`;
-            const location = `<b>Name: </b>${(allInfo.businesses[i].location.display_address.join(', '))}`;
-            li.innerHTML = `${name} <br> ${rating} <br> ${location}`;
-    
-            ol.appendChild(li);
-            
+            for(let i = 0; i < 5; i++) {
+                const li = document.createElement('li');
+                li.className = "cafeInfo";
+                const name= `<b>Name: </b>${allInfo.businesses[i].name}`;
+                const r = (JSON.parse(allInfo.businesses[i].rating).toFixed(1));
+                const rating = `<b>Rating: </b>${fancyRate(r)}`;
+                const location = `<b>Name: </b>${(allInfo.businesses[i].location.display_address.join(', '))}`;
+                li.innerHTML = `${name} <br> ${rating} <br> ${location}`;
+        
+                ol.appendChild(li);
+            }
         }
+        
     }
     
     function fancyRate(rating) {
@@ -84,4 +88,5 @@ function displayCafeInfo(allInfo) {
         }
     }
 }
+
 export {getCafeInfo}
