@@ -27,9 +27,9 @@ In addition, this project will include:
 	* This feature will display the name of the coffee shop, its rating, and location.
 
 * **Integration with APIs:**
-	* OpenWeatherMap API: Providing accurate weather data.
-	* YelpFusion API: Offering information on popular coffee shops.
-	* Nominatim API: Facilitating location-based services, converting between latitude and longitude coordinates and city names
+	* **OpenWeatherMap API:** Providing accurate weather data.
+	* **YelpFusion API:** Offering information on popular coffee shops.
+	* **Nominatim API:** Facilitating location-based services, converting between latitude and longitude coordinates and city names
 * **Animated Background:** </br>
  Enhance user experience with visually appealing animated backgrounds using CSS.
 
@@ -58,7 +58,7 @@ Provide clear instructions for users on how to navigate the app and include a co
 ![Search1](https://github.com/shjang1025/Weather-App/assets/26673070/e290c561-54c0-45ba-903a-085573b7c757)
 
 ![Search2](https://github.com/shjang1025/Weather-App/assets/26673070/7fca270f-bd2d-4d2a-a0b4-1b4a8fe8e294)
-#### Rainy & Snowy City
+#### Rainy (drizzle, heavy rain) & Snowy City
 
 ![drizzle gif hd](https://github.com/shjang1025/Travel-with-Coffee/assets/26673070/5f2c1e19-0be5-44c6-a0cf-add6f7f6e7b5)
 
