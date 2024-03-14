@@ -4,7 +4,7 @@ function snow() {
   wrapper.className = 'wrapper';
   snow.appendChild(wrapper);
 
-  const amount = 50;
+  const amount = 70;
   let snowflake = 0;
 
   while(snowflake < amount) {
@@ -13,7 +13,7 @@ function snow() {
 
       let xPos = Math.floor(Math.random() * width);
       let yPos = Math.floor(Math.random() * height);
-      let duration = Math.random() * 3;
+      let duration = Math.random() * 0.5;
       
       //create 100 div 
       const newDiv = document.createElement("div");
@@ -23,7 +23,7 @@ function snow() {
       newDiv.style.left = `${xPos}px`;
       newDiv.style.top = `${yPos}px`;
       newDiv.style.bottom = '100';   
-      newDiv.style.animationDuration = `${1+duration}s`;
+      newDiv.style.animationDuration = `${0.5+duration}s`;
 
       wrapper.appendChild(newDiv);
       snowflake++;
