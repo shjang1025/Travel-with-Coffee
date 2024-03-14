@@ -1,16 +1,16 @@
 .snowflake {
-
     animation: fall 5s linear infinite;
     position: absolute; 
     pointer-events: none;
+    overflow: none;
   }  
   
   @keyframes fall {
     0%{
-      transform: translateY(1300px);
+      transform: translateY(0%);
     }
     100%{
-      transform: translateY(2000px);
+      transform: translateY(50%);
     }
   
   }

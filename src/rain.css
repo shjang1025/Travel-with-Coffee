@@ -5,7 +5,8 @@
     background: linear-gradient(transparent, #ffffff);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius : 5px;
-
+    pointer-events: none;
+    overflow: none;
 }  
 
   .drizzle {
@@ -15,14 +16,16 @@
     background: linear-gradient(transparent, #ffffff);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius : 5px;
+    pointer-events: none;
+    overflow: none;
 }
 
 @keyframes fall {
   0%{
-    transform: translateY(1300px);
+    transform: translateY(-100%);
   }
   100%{
-    transform: translateY(2000px);
+    transform: translateY(100%);
   }
 
 }

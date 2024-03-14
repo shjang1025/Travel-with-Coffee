@@ -1,6 +1,8 @@
+
 function clearRain() {
     const raindrops = document.querySelectorAll('.raindrop')
     raindrops.forEach(raindrop => raindrop.parentNode.removeChild(raindrop));
+
 }
 
 function clearDrizzle() {
@@ -12,6 +14,7 @@ function clearDrizzle() {
 function clearSnow() {
     const snowflakes = document.querySelectorAll('.snowflake')
     snowflakes.forEach(snowflake => snowflake.parentNode.removeChild(snowflake));
+
 }
 
 export {clearRain, clearDrizzle, clearSnow}
