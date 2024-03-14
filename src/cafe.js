@@ -1,4 +1,4 @@
-import {yelp_API_key} from "./api_key";
+import { yelp_API_key } from "./scipts/api_key";
 import { stateAbbreviations } from "./data";
 
 async function getCafeInfo(cityName) {
