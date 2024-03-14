@@ -71,8 +71,20 @@ function displayWeather(allInfo, mainWeather, main) {
     let location = document.querySelector('.location');
     let wind = document.querySelector('#wind');
 
-    let imperial = document.querySelector('.imperial');
-    let metric = document.querySelector('.metric');
+    const toggle = document.querySelector('.units');
+    let isMetric = toggle.classList.contains('metric');
+
+    if(isMetric) {
+        temp.innerHTML = `<p><b>Temperature:</b> <i>${kToc(JSON.parse(allInfo.main.temp))}°C</i></p>`;
+        tempMinMax.innerHTML = `<p><b>L:</b> <i>${kToc(JSON.parse(allInfo.main.temp_min))}°C / <b>H:</b> ${kToc(JSON.parse(allInfo.main.temp_max))}°C</i></p>`;
+        feelsLikeTemp.innerHTML = `<p><b>Feels like temp:</b> <i>${kToc(JSON.parse(allInfo.main.feels_like))}°C</i></p>`;   
+    } else {
+        temp.innerHTML = `<p><b>Temperature:</b> <i>${kTof(JSON.parse(allInfo.main.temp))}°F</i></p>`;
+        tempMinMax.innerHTML = `<p><b>L:</b> <i>${kTof(JSON.parse(allInfo.main.temp_min))}°F / <b>H:</b> ${kTof(JSON.parse(allInfo.main.temp_max))}°F</i></p>`;
+        feelsLikeTemp.innerHTML = `<p><b>Feels like temp:</b> <i>${kTof(JSON.parse(allInfo.main.feels_like))}°F</i></p>`;
+    }
+    // let imperial = document.querySelector('.imperial');
+    // let metric = document.querySelector('.metric');
 
     //change class depending on weather condition
     let iconRes = allInfo.weather[0].icon;
@@ -81,9 +93,9 @@ function displayWeather(allInfo, mainWeather, main) {
 
     //parsing main object and fetch temp (integer) - kelvin to celsius/farenheit.
     
-    temp.innerHTML = `<p><b>Temperature:</b> <i>${kTof(JSON.parse(allInfo.main.temp))}°F</i></p>`;
-    tempMinMax.innerHTML = `<p><b>L:</b> <i>${kTof(JSON.parse(allInfo.main.temp_min))}°F</i> / <b>H:</b> <i>${kTof(JSON.parse(allInfo.main.temp_max))}°F</i></p>`;
-    feelsLikeTemp.innerHTML = `<p><b>Feels like temp:</b> <i>${kTof(JSON.parse(allInfo.main.feels_like))}°F</i></p>`;
+    // temp.innerHTML = `<p><b>Temperature:</b> <i>${kTof(JSON.parse(allInfo.main.temp))}°F</i></p>`;
+    // tempMinMax.innerHTML = `<p><b>L:</b> <i>${kTof(JSON.parse(allInfo.main.temp_min))}°F</i> / <b>H:</b> <i>${kTof(JSON.parse(allInfo.main.temp_max))}°F</i></p>`;
+    // feelsLikeTemp.innerHTML = `<p><b>Feels like temp:</b> <i>${kTof(JSON.parse(allInfo.main.feels_like))}°F</i></p>`;
 
     location.innerHTML = `<p><b>Location:</b> <i>${allInfo.name}, ${allInfo.sys.country}</i></p>`;
     wind.innerHTML = `<p><b>Wind:</b> <i>${JSON.parse(allInfo.wind.speed)}m/s / ${msTomph(JSON.parse(allInfo.wind.speed))} mph</i></p>`

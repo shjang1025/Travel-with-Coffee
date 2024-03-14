@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 getWeatherInfo(userInput);
                 getCafeInfo(userInput);
             }
+            document.getElementById("toggleSwitch").style.display = "block";
+
         }
         f();
     });
@@ -66,8 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
         let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_key}`;
-        console.log(lat);
-        console.log(lng);
+
         fetch(url)
             .then(res => {
                 if(res.ok) {
