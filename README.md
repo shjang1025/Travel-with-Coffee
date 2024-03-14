@@ -5,35 +5,35 @@
 Easily check current conditions and predictions for any location you want to travel to, whether it's rain, snow, or sunshine. But now with the perfect **travel companion - coffee!** Get instant weather updates, ensuring you're prepared for rain, snow, or sunshine. Plus, easily input your location for convenience. Stay informed and energized on your travel with this app.
 
 ## Functionality & MVPs:
-* Access real-time weather updates: </br>
+* **Access real-time weather updates:** </br>
 Stay informed about the current weather conditions for their current location or any city of interest.
 
-* Location flexibility: </br>
+* **Location flexibility** </br>
 Choose between automatic location detection or manual input, ensuring accessibility and convenience for users.
 
-* Detailed weather information: </br>
+* **Detailed weather information:** </br>
 Receive comprehensive details on precipitation (rain, snow) and wind conditions, enabling better planning for travel.
 
-* Temperature metrics: 
+* **Temperature metrics:** 
 	* View temperature metrics such as minimum and maximum temperatures, as well as feels-like-temperature, helping users to dress appropriately for the weather.
 	* Additionally, users can toggle between Fahrenheit and Celsius units using a switch for their preferred measurement system.
 
-* Sun and cloud coverage: </br>
+* **Sun and cloud coverage:** </br>
 Get insights into sun and cloud coverage, allowing users to plan their day effectively.
 
 In addition, this project will include:
-* Coffee Shops Information: 
+* **Coffee Shops Information:**
 	* Users will also have access to information on the top five coffee shops in their city, sorted by review counts. 
 	* This feature will display the name of the coffee shop, its rating, and location.
 
-* Integration with APIs:
+* **Integration with APIs:**
 	* OpenWeatherMap API: Providing accurate weather data.
 	* YelpFusion API: Offering information on popular coffee shops.
 	* Nominatim API: Facilitating location-based services, converting between latitude and longitude coordinates and city names
-* Animated Background: </br>
+* **Animated Background:** </br>
  Enhance user experience with visually appealing animated backgrounds using CSS.
 
-* User Instructions and README: </br>
+* **User Instructions and README:** </br>
 Provide clear instructions for users on how to navigate the app and include a comprehensive README file for developers detailing project setup and usage.
 
 
