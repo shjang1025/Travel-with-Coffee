@@ -1,7 +1,7 @@
 import { showCurrentDate } from "./date";
-import { displayWeather, getWeatherInfo, updateTemperatureDisplay} from "./weather";
-import { getTempInfo } from "./temp"
-import { API_key, yelp_API_key} from "./scipts/api_key";
+import { displayWeather, getWeatherInfo, updateTemperatureDisplay} from "./weather/weather";
+import { getTempInfo } from "./weather/temp"
+import { API_key} from "./api_key/api_key";
 import { getCafeInfo } from "./cafe";
 import { geoToCity, showPosition} from "./geo_city";
 

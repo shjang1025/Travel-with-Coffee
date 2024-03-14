@@ -1,8 +1,8 @@
-import { heavyRain } from "./heavy_rain";
-import { snow } from "./snow";
-import { drizzle } from "./drizzle";
-import { clearDrizzle, clearRain, clearSnow } from "./clear_animation";
-import { API_key } from "./scipts/api_key";
+import { heavyRain } from "../weather_conditions/heavy_rain";
+import { snow } from "../weather_conditions/snow";
+import { drizzle } from "../weather_conditions/drizzle";
+import { clearDrizzle, clearRain, clearSnow } from "../weather_conditions/clear_animation";
+import { API_key } from "../api_key/api_key";
 
 //fetching the data using weatherapi, with user Input
 function getWeatherInfo(cityName) {

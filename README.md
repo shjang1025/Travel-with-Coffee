@@ -21,10 +21,11 @@ Receive comprehensive details on precipitation (rain, snow) and wind conditions,
 * **Sun and cloud coverage:** </br>
 Get insights into sun and cloud coverage, allowing users to plan their day effectively.
 
-In addition, this project will include:
 * **Coffee Shops Information:**
 	* Users will also have access to information on the top five coffee shops in their city, sorted by review counts. 
 	* This feature will display the name of the coffee shop, its rating, and location.
+	
+In addition, this project will include:
 
 * **Integration with APIs:**
 	* **OpenWeatherMap API:** Providing accurate weather data.
