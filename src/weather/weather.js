@@ -42,7 +42,9 @@ function getWeatherInfo(cityName) {
     let WeatherAPI = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_key}`
     return fetch(WeatherAPI)
         .then(res => {
-            if(res.ok) {
+            if(res.status === 404) {
+                alert("Please enter a city name correctly. No abbreviation accepted!");
+            } else if(res.ok) {
                 return res.json();
             } else {
                 throw res;
@@ -50,12 +52,7 @@ function getWeatherInfo(cityName) {
         }) // promise object will be returned 
         .then(allInfo => displayWeather(allInfo, mainWeather, main))
         .catch(err => {
-            if(err.message === '404') {
-                alert("Please enter a city name correctly. No abbreviation accepted!");
-
-            } else {
                 console.error(err)
-            }
         });
 }
 
