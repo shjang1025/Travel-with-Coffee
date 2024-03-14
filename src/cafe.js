@@ -59,7 +59,7 @@ function displayCafeInfo(allInfo) {
                 const name= `<b>Name: </b>${allInfo.businesses[i].name}`;
                 const r = (JSON.parse(allInfo.businesses[i].rating).toFixed(1));
                 const rating = `<b>Rating: </b>${fancyRate(r)}`;
-                const location = `<b>Name: </b>${(allInfo.businesses[i].location.display_address.join(', '))}`;
+                const location = `<b>Location: </b>${(allInfo.businesses[i].location.display_address.join(', '))}`;
                 li.innerHTML = `${name} <br> ${rating} <br> ${location}`;
         
                 ol.appendChild(li);
