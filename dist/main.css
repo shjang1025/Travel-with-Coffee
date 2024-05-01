@@ -352,3 +352,16 @@ body.weather-mist {
   background: linear-gradient(150deg, #ffffff, #339764);
   background-size: cover;
 }
+
+.unit-fahrenheit {
+  top: 5px;
+  left: 3px;
+  position: absolute;
+  padding-right: 22px;
+}
+
+.unit-celsius {
+  top: 5px;
+  position: absolute;
+  padding-left: 8px;
+}
