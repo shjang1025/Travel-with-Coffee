@@ -73,7 +73,7 @@ body{
     // padding-top: 15px;
     font-size: 35px;
     font-weight: bold;
-    font-family: "Roboto Slab", serif;
+    font-family: "Fira Sans Condensed", sans-serif;
     background: -webkit-linear-gradient(#fffefe, #cccaca);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -83,7 +83,7 @@ body{
     width: 300px;
     margin: 30px 0px;
     box-sizing:content-box;
-    border-radius: 10px;
+    border-radius: 50px;
     border: none;
     
     // border-bottom: 2px solid rgb(255, 255, 255); // Add underline style
@@ -95,7 +95,11 @@ body{
         cursor: pointer;
     }
 }
+.inputCity_button {
+    padding: 12px;
+    border-radius: 50px;
 
+} 
 .navbar {
     display: flex;
     justify-content: center;
@@ -128,7 +132,7 @@ body{
     align-items: center;
     align-content: center;
     flex-direction: column;
-    font-family: "Roboto Slab", serif;
+    font-family: "Fira Sans Condensed", sans-serif;
     padding-top: 50px;
 }
 .container h1 {
@@ -145,7 +149,7 @@ body{
     justify-content: center;
     align-items: center;
     margin:auto;
-    font-family: "Roboto Slab", serif;
+    font-family: "Fira Sans Condensed", sans-serif;
 }
 
 
@@ -223,7 +227,7 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    font-family: "Roboto Slab", serif;
+    font-family: "Fira Sans Condensed", sans-serif;
 }
 #temp, 
 #temp_min_max, 
