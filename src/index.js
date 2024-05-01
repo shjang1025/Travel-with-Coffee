@@ -42,13 +42,19 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
         const f = () => {
             let isMetric = toggle.classList.contains('metric');
+            const unitCelsius = document.querySelector('.unit-celsius');
+            const unitFahrenheit = document.querySelector('.unit-fahrenheit'); 
             if(isMetric) {
                 toggle.classList.remove('metric');
-                toggle.classList.add('imperial')
+                toggle.classList.add('imperial');
+                unitCelsius.style.display = 'inline';
+                unitFahrenheit.style.display = 'none';
             } else {
                 // If currently in imperial, switch to metric
                 toggle.classList.remove('imperial');
                 toggle.classList.add('metric');
+                unitCelsius.style.display = 'none';
+                unitFahrenheit.style.display = 'inline';
             }
             const userInput = document.querySelector(".inputCity_mycity").value;
             if (userInput) {
