@@ -3,7 +3,7 @@ import { displayWeather, getWeatherInfo, updateTemperatureDisplay} from "./weath
 import { getTempInfo } from "./weather/temp"
 import { API_key} from "./api_key/api_key";
 import { getCafeInfo } from "./cafe";
-import { geoToCity, showPosition} from "./geo_city";
+import { showPosition} from "./geo_city";
 
 document.addEventListener("DOMContentLoaded", () => {
    
@@ -35,7 +35,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         f();
     });
-
+    let infoIcon = document.getElementById('infoIcon');
+    let dropdownDesc = document.querySelector('.dropdown-desc');
+    
+    // When the user clicks on the info icon, toggle the display of the dropdown description
+    infoIcon.addEventListener('click', function() {
+        if (dropdownDesc.style.display === 'none' || dropdownDesc.style.display === '') {
+            dropdownDesc.style.display = 'block';
+        } else {
+            dropdownDesc.style.display = 'none';
+        }
+    });
+    
 
     const toggle = document.querySelector('.units');
     toggle.addEventListener("change", (event) => {
