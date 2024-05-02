@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         f();
     });
     let infoIcon = document.getElementById('infoIcon');
-    let dropdownDesc = document.querySelector('.dropdown-desc');
+    let dropdownDesc = document.querySelector('.dropdown');
     
     // When the user clicks on the info icon, toggle the display of the dropdown description
     infoIcon.addEventListener('click', function() {
